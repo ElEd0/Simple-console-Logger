@@ -35,6 +35,7 @@ public abstract class LoggerFactory {
 		return loggers.get(name);
 	}
 	
+	
 	/**
 	 * Default implementation of Logger.<br>
 	 * Will output to System.out (error to System.err if specified via {@link Logger#setUseErrStrForError(boolean)})
@@ -67,7 +68,7 @@ public abstract class LoggerFactory {
 						+ "[" + withName + "]"
 						+ "[" + level.toString().toUpperCase() + "] "
 						+ reason + msg
-						+ (throwable == null ? "." : "  --  " + throwable.getMessage());
+						+ (throwable == null ? "" : "  --  " + throwable.getMessage());
 				
 				LOG(((level.toInt() >= Level.error.toInt() && this.useErrStrForError) ? System.err : System.out),
 						log, throwable);

@@ -7,14 +7,8 @@ import es.ed0.scl.Logger;
 import es.ed0.scl.LoggerFactory;
 import es.ed0.scl.Logger.Level;
 
-/**
- * 
- */
 public class Logtest {
-
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
 		
 		new Logtest();
@@ -23,11 +17,12 @@ public class Logtest {
 	
 	private Logtest() {
 
-		Logger logger = LoggerFactory.getLogger(getClass().getName());
+		Logger logger = LoggerFactory.getLogger(Logtest.class);
 		
 		logger.setUseErrStrForError(true);
 		logger.setLogFilePath("newfile.txt");
 		logger.setErrorLogFilePath("errors.txt");
+		
 		
 		logger.info("Info message");
 		logger.debug("Server", "something happened");
@@ -39,7 +34,7 @@ public class Logtest {
 		try {
 			Integer.valueOf("asdasd");
 		} catch (NumberFormatException e) {
-			logger.error("excpetion ocurred", e);
+			logger.info("excpetion ocurred", e);
 		}
 		
 		logger.error("fatsts", "un error");
